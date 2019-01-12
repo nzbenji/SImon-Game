@@ -2,14 +2,18 @@
     justify-content: center;
 }
 
-.btns {
+.btn {
     cursor: pointer;
     height: 200px;
-    width: 200px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    
+    width: 200px;  
+}
+.row1 {
+    box-sizing: border-box;
+    float: left;
+}
+.row2 {
+    box-sizing: border-box;
+    float: left;
 }
 
 .red{

@@ -56,42 +56,15 @@ const SimonGame = (() => {
         console.log(document.body)
 
         var i = -1
-
-        function start() {
-            setInterval(function () {
+            let startInterval = setInterval(function () {
                 i = (i+1) % state.randomColor.length
                 console.log(state.randomColor[i])
+                //console.log(i)
+                //allow for -1 otherwise entering an infinite loop 
+                if(i === state.randomColor.length -1) {
+                    clearInterval(startInterval)
+                }
             }, 2000)
-        }
-        function stop() {
-            clearInterval(i)
-        }
-        if(i === 6) {
-            clearInterval(i)
-        } else {
-            //setTimeout(start, 2000)
-        }
-        
-
-         //setTimeout(start, 2000)
-        
-
-
-        // function changeColor() {
-        //     var i = -1; //if starting at 0 first starting index is index 1 (0+1)
-        //     setInterval(function() {
-        //         i = (i+1) % state.randomColor.length
-        //         console.log(state.randomColor[i])
-        //     }, 2000)
-        //     if(i === state.randomColor.length) {
-        //         clearInterval(changeColor)
-        //     }
-        // }
-        // if(changeColor === state.randomColor.length) {
-        //     clearInterval(changeColor)
-        // } else {
-        //     setTimeout(changeColor, 2000)
-        // }
         
     }
 

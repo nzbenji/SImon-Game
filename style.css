@@ -1,0 +1,29 @@
+.container {
+    justify-content: center;
+}
+
+.btns {
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
+}
+
+.red{
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}

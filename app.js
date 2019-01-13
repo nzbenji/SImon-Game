@@ -53,24 +53,59 @@ const SimonGame = (() => {
         const { colors, startingIndex } = state
         state.randomColor = getRandomColors(colors, startingIndex) //Get random colors based on value of startingIndex
         
-        let color = document.getElementById("red")
+        let color;
+        
+        
+
+        let elements = document.getElementsByClassName('color')
+        for (const i of elements) {
+            if(i.classList.contains('red')) {
+                color = document.querySelector('.red')
+            } 
+            // if(i.classList.contains('blue')) {
+            //     console.log(i)
+            //     //color = document.querySelector('.blue')
+            // } 
+            // if(i.classList.contains('green')) {
+            //     console.log(i)
+            //     //color = document.querySelector('.blgreenue')
+            // } 
+            // if(i.classList.contains('yellow')) {
+            //     console.log(i)
+            //     //color = document.querySelector('.yellow')
+            // }
+        }
+        
         let originalColor = getComputedStyle(color).backgroundColor //store original color
+        
+        function changeColor() {
+            color.style.backgroundColor = 'black'
 
-        color.style.backgroundColor
+            setTimeout(() => {
+                color.style.backgroundColor = originalColor
+            }, 1000)
+        }
+        
 
+
+        console.log(state.randomColor)
         let i = -1
             let startInterval = setInterval(() => {
                 i = (i+1) % state.randomColor.length
+                
                 console.log(state.randomColor[i])
                 
+                
+
+
                 if(state.randomColor[i] === 'red') {
-                    document.getElementById("red").style.backgroundColor = 'black'
+                    changeColor()
                 } 
     
                 if(i === state.randomColor.length -1) {
                     clearInterval(startInterval)
                 }
-            }, 2000)    
+            }, 1500)    
     }
 
     return {
@@ -79,3 +114,39 @@ const SimonGame = (() => {
 })()
 
 SimonGame.init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// switch(state.randomColor[i]) {
+//     case 'red':
+//         color = document.getElementById("red")
+//         changeColor()
+//         break;
+//     case 'blue':
+//         color = document.getElementById("blue")
+//         changeColor()
+//         break;
+//     case 'green':
+//     color = document.getElementById("green")
+//         changeColor()
+//         break;
+//     case 'yellow':
+//         color = document.getElementById("yellow")  
+//         changeColor()
+//         break;
+//     default:
+//         break;
+// }

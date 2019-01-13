@@ -52,20 +52,25 @@ const SimonGame = (() => {
     const startGame = _ => {
         const { colors, startingIndex } = state
         state.randomColor = getRandomColors(colors, startingIndex) //Get random colors based on value of startingIndex
-        console.log(state.randomColor)
-        console.log(document.body)
+        
+        let color = document.getElementById("red")
+        let originalColor = getComputedStyle(color).backgroundColor //store original color
 
-        var i = -1
-            let startInterval = setInterval(function () {
+        color.style.backgroundColor
+
+        let i = -1
+            let startInterval = setInterval(() => {
                 i = (i+1) % state.randomColor.length
                 console.log(state.randomColor[i])
-                //console.log(i)
-                //allow for -1 otherwise entering an infinite loop 
+                
+                if(state.randomColor[i] === 'red') {
+                    document.getElementById("red").style.backgroundColor = 'black'
+                } 
+    
                 if(i === state.randomColor.length -1) {
                     clearInterval(startInterval)
                 }
-            }, 2000)
-        
+            }, 2000)    
     }
 
     return {
